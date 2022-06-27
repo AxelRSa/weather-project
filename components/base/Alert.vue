@@ -20,6 +20,7 @@ export default {
   position: absolute;
   bottom: 20px;
   width: 100%;
+  left: 0;
   padding: 0 10% 0 10%;
 }
 

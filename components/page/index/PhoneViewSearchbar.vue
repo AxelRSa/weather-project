@@ -16,7 +16,6 @@ export default {
 
 <style lang="scss" scoped>
 .input{
-  margin: 30px;
   position: relative;
 
   &__input{
