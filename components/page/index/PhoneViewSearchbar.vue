@@ -1,6 +1,6 @@
 <template lang="pug">
 .input
-  input.input__input(ref="inputSearchbar")
+  input.input__input(ref="inputSearchbar" @keyup.enter="sendInputData()")
   i.input__icon(class="fa-solid fa-magnifying-glass" @click="sendInputData()")
 </template>
 

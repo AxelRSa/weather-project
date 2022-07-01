@@ -1,7 +1,28 @@
 <template lang="pug">
-div
+div.container
+  //- cloud-bolt
+  template(v-if="weatherDescription === 'Thunderstorm'")
+    <i class="icon fa-solid fa-cloud-bolt"></i>
+
+  //- cloud-rain
+  template(v-if="weatherDescription === 'Patchy rain possible' || weatherDescription === 'Light drizzle' || weatherDescription === 'Rain, Heavy Rain Shower' || weatherDescription === 'Light Rain Shower, Rain Shower' || weatherDescription === 'Light Rain And Mist, Rain And Mist' || weatherDescription === 'Light rain shower' || weatherDescription === 'Light Rain, Rain' || weatherDescription === 'Moderate or heavy rain shower' || weatherDescription === 'Light Rain' || weatherDescription === 'Shower In Vicinity' || weatherDescription === 'Rain Shower'")
+    <i class="icon fa-solid fa-cloud-rain"></i>
+
+  //- cloud
+  template(v-if="weatherDescription === 'Cloudy' ||  weatherDescription === 'Overcast'")
+    <i class="icon fa-solid fa-cloud"></i>
+
+  //- cloud-sun
   template(v-if="weatherDescription === 'Partly cloudy'")
-    <i class="fa-solid fa-cloud-sun"></i>
+    <i class="icon fa-solid fa-cloud-sun"></i>
+
+  //- sun
+  template(v-if="weatherDescription === 'Sunny' || weatherDescription === 'Clear'")
+    <i class="icon fa-solid fa-sun"></i>
+
+  //- smog
+  template(v-if="weatherDescription === 'Smoke' || weatherDescription === 'Mist' || weatherDescription === 'Haze'")
+    <i class="icon fa-solid fa-smog"></i>
 </template>
 
 <script>
@@ -14,3 +35,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon{
+  font-size: 100px;
+}
+</style>

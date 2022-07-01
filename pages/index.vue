@@ -43,7 +43,6 @@ export default {
         const options = { weekday: 'short', month: 'short', day: 'numeric' }
         const date = new Date(data.location.localtime)
         this.info.localTime = date.toLocaleString('en-US', options)
-        console.log(data)
       } catch (error) {
         this.error = true
         setTimeout(() => {
