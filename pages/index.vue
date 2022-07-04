@@ -9,11 +9,11 @@ export default {
   data () {
     return {
       info: {
-        city: 'Cancun',
-        weatherDescription: 'Default',
-        country: 'Mexico',
+        city: '',
+        weatherDescription: '',
+        country: '',
         localTime: '0',
-        temperature: 30,
+        temperature: 0,
         feelslike: 0,
         humidity: 0,
         windSpeed: 0
@@ -30,18 +30,18 @@ export default {
     async getInputData (newCity) {
       try {
         const cityNameModified = encodeURI(newCity)
-        const response = await fetch(`http://api.weatherstack.com/current?access_key=a62a4a1147e223f103bb17c80872ccc9&query=${cityNameModified}`)
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=441999485c5640028c9232302220107&q=${cityNameModified}&aqi=no`)
         const data = await response.json()
-        this.info.weatherDescription = data.current.weather_descriptions[0]
+        this.info.weatherDescription = data.current.condition.text
         this.info.city = data.location.name
         this.info.country = data.location.country
-        this.info.temperature = data.current.temperature
-        this.info.feelslike = data.current.feelslike
-        this.info.humidity = data.current.humidity
-        this.info.windSpeed = data.current.wind_speed
+        this.info.temperature = Math.round(data.current.temp_c)
+        this.info.feelslike = Math.round(data.current.feelslike_c)
+        this.info.humidity = Math.round(data.current.humidity)
+        this.info.windSpeed = Math.round(data.current.wind_kph)
         // localtime
-        const options = { weekday: 'short', month: 'short', day: 'numeric' }
         const date = new Date(data.location.localtime)
+        const options = { weekday: 'short', month: 'short', day: 'numeric' }
         this.info.localTime = date.toLocaleString('en-US', options)
       } catch (error) {
         this.error = true

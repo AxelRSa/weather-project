@@ -5,24 +5,27 @@ div.container
     <i class="icon fa-solid fa-cloud-bolt"></i>
 
   //- cloud-rain
-  template(v-if="weatherDescription === 'Patchy rain possible' || weatherDescription === 'Light drizzle' || weatherDescription === 'Rain, Heavy Rain Shower' || weatherDescription === 'Light Rain Shower, Rain Shower' || weatherDescription === 'Light Rain And Mist, Rain And Mist' || weatherDescription === 'Light rain shower' || weatherDescription === 'Light Rain, Rain' || weatherDescription === 'Moderate or heavy rain shower' || weatherDescription === 'Light Rain' || weatherDescription === 'Shower In Vicinity' || weatherDescription === 'Rain Shower'")
+  template(v-else-if="weatherDescription === 'Patchy rain possible' || weatherDescription === 'Light drizzle' || weatherDescription === 'Rain, Heavy Rain Shower' || weatherDescription === 'Light Rain Shower, Rain Shower' || weatherDescription === 'Light Rain And Mist, Rain And Mist' || weatherDescription === 'Light rain shower' || weatherDescription === 'Light Rain, Rain' || weatherDescription === 'Moderate or heavy rain shower' || weatherDescription === 'Light Rain' || weatherDescription === 'Shower In Vicinity' || weatherDescription === 'Rain Shower'")
     <i class="icon fa-solid fa-cloud-rain"></i>
 
   //- cloud
-  template(v-if="weatherDescription === 'Cloudy' ||  weatherDescription === 'Overcast'")
+  template(v-else-if="weatherDescription === 'Cloudy' ||  weatherDescription === 'Overcast'")
     <i class="icon fa-solid fa-cloud"></i>
 
   //- cloud-sun
-  template(v-if="weatherDescription === 'Partly cloudy'")
+  template(v-else-if="weatherDescription === 'Partly cloudy'")
     <i class="icon fa-solid fa-cloud-sun"></i>
 
   //- sun
-  template(v-if="weatherDescription === 'Sunny' || weatherDescription === 'Clear'")
+  template(v-else-if="weatherDescription === 'Sunny' || weatherDescription === 'Clear'")
     <i class="icon fa-solid fa-sun"></i>
 
   //- smog
-  template(v-if="weatherDescription === 'Smoke' || weatherDescription === 'Mist' || weatherDescription === 'Haze'")
+  template(v-else-if="weatherDescription === 'Smoke' || weatherDescription === 'Mist' || weatherDescription === 'Haze'")
     <i class="icon fa-solid fa-smog"></i>
+
+  template(v-else)
+    <i class="icon fa-solid fa-question"></i>
 </template>
 
 <script>
