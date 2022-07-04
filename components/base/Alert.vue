@@ -1,6 +1,6 @@
 <template lang="pug">
 .alert-container(v-show="error")
-  p.alert Hubo un error
+  p.alert There was an error
 </template>
 
 <script>
